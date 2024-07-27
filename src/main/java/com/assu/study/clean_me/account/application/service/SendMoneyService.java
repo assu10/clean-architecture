@@ -5,10 +5,12 @@ import com.assu.study.clean_me.account.application.port.in.SendMoneyUseCase;
 import com.assu.study.clean_me.account.application.port.out.AccountLock;
 import com.assu.study.clean_me.account.application.port.out.LoadAccountPort;
 import com.assu.study.clean_me.account.application.port.out.UpdateAccountStatePort;
+import com.assu.study.clean_me.common.UseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
 // 인커밍 포트 인터페이스인 SendMoneyUseCase 구현
+@UseCase
 @RequiredArgsConstructor
 @Transactional
 public class SendMoneyService implements SendMoneyUseCase {
