@@ -48,7 +48,7 @@ public class Account {
     return true;
   }
 
-  // 출금 가능 상태인지 확인
+  // 출금 가능 상태인지 확인 (비즈니스 규칙 검증)
   private boolean mayWithdraw(Money money) {
     return Money.add(this.calculateBalance(), money.negate()).isPositiveOrZero();
   }
