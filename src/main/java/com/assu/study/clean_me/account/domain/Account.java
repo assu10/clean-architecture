@@ -4,9 +4,11 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.Value;
 
-// 계좌의 현재 스냅샷을 제공하는 엔티티
+// 계좌의 현재 스냅샷을 제공
+@Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Account {
   private final AccountId id;
@@ -22,6 +24,13 @@ public class Account {
   // 아직 생성되지 않은 새로운 엔티티 생성
   public static Account withoutId(Money baselineBalance, ActivityWindow activityWindow) {
     return new Account(null, baselineBalance, activityWindow);
+  }
+
+  // ID 가 있는 Account 엔티티 생성
+  // 이미 저장된 엔티티를 재구성할 때 사용
+  public static Account withId(
+      AccountId accountId, Money baselineBalance, ActivityWindow activityWindow) {
+    return new Account(accountId, baselineBalance, activityWindow);
   }
 
   public Optional<AccountId> getId() {
