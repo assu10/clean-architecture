@@ -34,6 +34,7 @@ public class SendMoneyService implements SendMoneyUseCase {
   // 3. 출력값 반환
   @Override
   public boolean sendMoney(SendMoneyCommand command) {
+    System.out.println("=================== service");
     // 1. 비즈니스 규칙 검증
 
     // 이체 가능한 최대 한도를 넘는지 검사
