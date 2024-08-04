@@ -18,7 +18,7 @@ public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccount
   private final ActivityRepository activityRepository;
   private final AccountMapper accountMapper;
 
-  // Account 도메인 엔티티 반환
+  // Account 도메인 엔티티를 DB 로부터 가져와서 반환
   @Override
   public Account loadAccount(Account.AccountId accountId, LocalDateTime baselineDate) {
     // 계좌 정보 조회
@@ -46,6 +46,7 @@ public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccount
   }
 
   // 계좌 상태 업데이트
+  // 새로운 계좌 활동을 DB 에 저장
   @Override
   public void updateActivities(Account account) {
     // Account 엔티티의 모든 활동을 순회하여 id 가 있는지 확인 후 없다면 새로운 활동 저장
