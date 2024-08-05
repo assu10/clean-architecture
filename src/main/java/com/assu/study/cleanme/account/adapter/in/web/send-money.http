@@ -1,0 +1,5 @@
+### GET request to example server
+POST http://localhost:8080/accounts/send/{{sourceAccountId}}/{{targetAccountId}}/{{amount}}
+Content-Type: application/json
+
+###

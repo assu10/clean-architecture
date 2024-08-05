@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 // 특정 계좌에 대한 모든 활동을 저장하는 엔티티
 @Entity
-@Table(name = "activity")
+@Table(name = "activity_1")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,11 +17,14 @@ class ActivityJpaEntity {
 
   @Column private LocalDateTime timestamp;
 
-  @Column private Long ownerAccountId;
+  @Column(name = "owner_account_id")
+  private Long ownerAccountId;
 
-  @Column private Long sourceAccountId;
+  @Column(name = "source_account_id")
+  private Long sourceAccountId;
 
-  @Column private Long targetAccountId;
+  @Column(name = "target_account_id")
+  private Long targetAccountId;
 
   @Column private Long amount;
 }

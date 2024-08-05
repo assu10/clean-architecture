@@ -29,11 +29,12 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.mysql:mysql-connector-j:9.0.0'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'junit' // excluding junit 4
     }
-    testImplementation 'com.h2database:h2:2.3.230'
+    //testImplementation 'com.h2database:h2:2.3.230'
 
 //    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
 //    testImplementation 'org.mockito:mockito-junit-jupiter:5.12.0'

@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @PersistenceAdapter
 @RequiredArgsConstructor
-public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
+class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
 
   private final AccountRepository accountRepository;
   private final ActivityRepository activityRepository;
@@ -52,7 +52,8 @@ public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccount
     // Account 엔티티의 모든 활동을 순회하여 id 가 있는지 확인 후 없다면 새로운 활동 저장
     for (Activity activity : account.getActivityWindow().getActivities()) {
       if (activity.getId() == null) {
-        activityRepository.save(accountMapper.mapToJpaEntity(activity));
+        ActivityJpaEntity aa = accountMapper.mapToJpaEntity(activity);
+        activityRepository.save(aa);
       }
     }
   }
